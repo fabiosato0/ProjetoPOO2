@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fasat
@@ -32,18 +34,19 @@ public class Principal extends javax.swing.JFrame {
         itMnCad = new javax.swing.JMenu();
         itMnCadUsuario = new javax.swing.JMenuItem();
         itMnCadAdministrador = new javax.swing.JMenuItem();
-        itMnRel = new javax.swing.JMenu();
+        itMnCadCarro = new javax.swing.JMenuItem();
         itMnSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nome.setText("Sistema Principal");
+        nome.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        nome.setText("Sistema North Cars");
 
         mnIniciar.setText("Iniciar");
 
         itMnCad.setText("Cadastrar");
 
-        itMnCadUsuario.setText("Usuário");
+        itMnCadUsuario.setText("Usuário...");
         itMnCadUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itMnCadUsuarioActionPerformed(evt);
@@ -51,7 +54,7 @@ public class Principal extends javax.swing.JFrame {
         });
         itMnCad.add(itMnCadUsuario);
 
-        itMnCadAdministrador.setText("Administrador");
+        itMnCadAdministrador.setText("Administrador....");
         itMnCadAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itMnCadAdministradorActionPerformed(evt);
@@ -59,10 +62,10 @@ public class Principal extends javax.swing.JFrame {
         });
         itMnCad.add(itMnCadAdministrador);
 
-        mnIniciar.add(itMnCad);
+        itMnCadCarro.setText("Carro...");
+        itMnCad.add(itMnCadCarro);
 
-        itMnRel.setText("Relátorio");
-        mnIniciar.add(itMnRel);
+        mnIniciar.add(itMnCad);
 
         itMnSair.setText("Sair");
         itMnSair.addActionListener(new java.awt.event.ActionListener() {
@@ -81,16 +84,16 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(nome)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(112, 112, 112)
                 .addComponent(nome)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,6 +101,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void itMnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itMnSairActionPerformed
         // TODO add your handling code here:
+             int ret = JOptionPane.showConfirmDialog(
+                null,
+                "Deseja realmente sair?",
+                "Saida",
+                JOptionPane.YES_NO_CANCEL_OPTION
+        );
+        if(ret == 0){
+            dispose();
+        }
     }//GEN-LAST:event_itMnSairActionPerformed
 
     private void itMnCadAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itMnCadAdministradorActionPerformed
@@ -111,10 +123,7 @@ public class Principal extends javax.swing.JFrame {
         FormCadUsuario formUsuario = new FormCadUsuario();
         formUsuario.setVisible(true);
     }//GEN-LAST:event_itMnCadUsuarioActionPerformed
-    
-    public void abreCadUsuario(){
-       
-    }
+
     
     /**
      * @param args the command line arguments
@@ -155,8 +164,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar barMenuPrinc;
     private javax.swing.JMenu itMnCad;
     private javax.swing.JMenuItem itMnCadAdministrador;
+    private javax.swing.JMenuItem itMnCadCarro;
     private javax.swing.JMenuItem itMnCadUsuario;
-    private javax.swing.JMenu itMnRel;
     private javax.swing.JMenuItem itMnSair;
     private javax.swing.JMenu mnIniciar;
     private javax.swing.JLabel nome;
