@@ -10,5 +10,16 @@
         <maven.compiler.release>24</maven.compiler.release>
         <exec.mainClass>Teste</exec.mainClass>
     </properties>
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.5</version>
+        </dependency>
+        
+    </dependencies>
+    
     <name>poo2</name>
 </project>
