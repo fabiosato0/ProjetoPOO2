@@ -7,6 +7,7 @@
 import view.Principal; 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
@@ -35,7 +36,7 @@ public class Teste {
             }
         }
         );
-
+/*
         try{ //bloco para registro do driver
             System.out.println("Carregando o driver...");
             Class.forName(driver);
@@ -80,6 +81,44 @@ public class Teste {
         }catch(Exception e){
             System.out.println("Falha na conexao!");
         }
+      */
+/*
+        String sql3 = "SELECT * FROM cliente";
+        ResultSet rs = null;
+        
+        try{ //bloco para registro do driver
+          Class.forName(driver);
+          conn = DriverManager.getConnection(url,user,senha);
+          st = conn.createStatement();
+          rs = st.executeQuery(sql3);
+          while(rs.next()){
+              System.out.println("ID = "+rs.getInt(1));
+              System.out.println("Nome = "+rs.getString(2));
+              System.out.println("Email = "+rs.getString(3));
+              
+          }
+          rs.close();
+          st.close();
+          conn.close();
+        }catch(Exception e){
+            System.out.println("Falha na conexao!");
+        }
+ */       
+        String sql4 = "DELETE FROM cliente WHERE id = 2";
+        
+        try{ //bloco para registro do driver
+          Class.forName(driver);
+          conn = DriverManager.getConnection(url,user,senha);
+          st = conn.createStatement();
+          st.executeUpdate(sql4);
+          System.out.println("Excluido com sucesso");
+          st.close();
+          conn.close();
+          
+        }catch(Exception e){
+            System.out.println("Falha na conexao!");
+        }
+        
         
     }   
 }
