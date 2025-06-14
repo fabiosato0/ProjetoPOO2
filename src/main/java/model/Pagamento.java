@@ -9,5 +9,11 @@ package model;
  * @author fasat
  */
 public class Pagamento {
+ 
+    // private float precobase = ;
     
+    public void calcLocacao(String placa) {
+        
+    }
+
 }
