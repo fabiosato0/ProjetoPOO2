@@ -15,6 +15,15 @@ import java.sql.Statement;
  * @author Aluno
  */
 public class Teste {
+     public static void main(String[] args){
+      java.awt.EventQueue.invokeLater(new Runnable(){
+            public void run(){
+                new Principal().setVisible(true);
+            }
+        }
+        );
+     }
+    /*
     static Connection conn = null;
     static String url = "jdbc:postgresql://localhost:5432/NorthCars";
     static String user = "postgres";
@@ -30,13 +39,8 @@ public class Teste {
           
         
         
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            public void run(){
-                new Principal().setVisible(true);
-            }
-        }
-        );
-/*
+      
+
         try{ //bloco para registro do driver
             System.out.println("Carregando o driver...");
             Class.forName(driver);
@@ -81,7 +85,7 @@ public class Teste {
         }catch(Exception e){
             System.out.println("Falha na conexao!");
         }
-      */
+      
 /*
         String sql3 = "SELECT * FROM cliente";
         ResultSet rs = null;
@@ -104,6 +108,8 @@ public class Teste {
             System.out.println("Falha na conexao!");
         }
  */       
+
+/*
         String sql4 = "DELETE FROM cliente WHERE id = 2";
         
         try{ //bloco para registro do driver
@@ -118,9 +124,25 @@ public class Teste {
         }catch(Exception e){
             System.out.println("Falha na conexao!");
         }
+       */ 
+                
+        ResultSet rs = null;
+        /*
+        String sql6 = "UPTADE Carro set Car_ano = 2012  WHERE Car_placa = {1}";
         
+        try{ //alteração de dados de 1 registro
+          Class.forName(driver);
+          conn = DriverManager.getConnection(url,user,senha);
+          st = conn.createStatement();
+          st.executeUpdate(sql6);
+          st.close();
+          conn.close();
+        }catch(Exception e){
+            System.out.println("Falha na conexao!");
+        }
         
     }   
+*/
 }
 
 

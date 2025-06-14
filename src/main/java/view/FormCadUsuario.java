@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import model.Usuario;
+import controller.ControladorUsuario;
+import javax.swing.JOptionPane;
+import java.util.List;
 /**
  *
  * @author fasat
@@ -38,6 +41,10 @@ public class FormCadUsuario extends javax.swing.JFrame {
         cxIdade = new javax.swing.JTextField();
         rotCodigo = new javax.swing.JLabel();
         cxCodigo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Usuário");
@@ -61,14 +68,38 @@ public class FormCadUsuario extends javax.swing.JFrame {
 
         rotCodigo.setText("Código:");
 
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Deletar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Listar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCadastrar)
-                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -96,6 +127,18 @@ public class FormCadUsuario extends javax.swing.JFrame {
                         .addGap(140, 140, 140)
                         .addComponent(rotTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btCadastrar)
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,8 +166,15 @@ public class FormCadUsuario extends javax.swing.JFrame {
                     .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rotCodigo))
                 .addGap(18, 18, 18)
-                .addComponent(btCadastrar)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrar)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -132,7 +182,70 @@ public class FormCadUsuario extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
+        Usuario usuario = new Usuario();
+        String t1 = cxCpf.getText();
+        String t2 = cxNome.getText();
+        String t3 = cxTelefone.getText();
+        int t4 = Integer.parseInt(cxIdade.getText());
+        int t5 = Integer.parseInt(cxCodigo.getText());
+        
+        usuario.setCpf(t1);
+        usuario.setNome(t2);
+        usuario.setTelefone(t3);
+        usuario.setIdade(t4);
+        usuario.setIdCliente(t5);
+        
+        ControladorUsuario cont  = new ControladorUsuario();
+        cont.inserir(usuario);
+        
+        JOptionPane.showMessageDialog(
+            null,
+            "Usuário Cadastrado com sucesso",
+            "Cadastro de Técnico",
+            1
+        );
+       limpar();
     }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        limpar();
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void limpar(){
+        cxNome.setText("");
+        cxIdade.setText("");
+        cxCpf.setText("");
+        cxCodigo.setText("");
+        cxTelefone.setText("");    
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int t = Integer.parseInt(cxCodigo.getText());
+        
+        ControladorUsuario cont  = new ControladorUsuario();
+        cont.deletar(t);
+        
+        JOptionPane.showMessageDialog(
+            null,
+            "Usuário Apagado com sucesso",
+            "Usuário Deletado",
+            1
+        );
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        FormRelUsuario formRelUsuario = new FormRelUsuario();
+        formRelUsuario.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +289,10 @@ public class FormCadUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField cxIdade;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxTelefone;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel rotCodigo;
     private javax.swing.JLabel rotCpf;
     private javax.swing.JLabel rotIdade;

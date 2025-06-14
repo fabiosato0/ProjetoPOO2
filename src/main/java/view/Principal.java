@@ -63,6 +63,11 @@ public class Principal extends javax.swing.JFrame {
         itMnCad.add(itMnCadAdministrador);
 
         itMnCadCarro.setText("Carro...");
+        itMnCadCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itMnCadCarroActionPerformed(evt);
+            }
+        });
         itMnCad.add(itMnCadCarro);
 
         mnIniciar.add(itMnCad);
@@ -123,6 +128,12 @@ public class Principal extends javax.swing.JFrame {
         FormCadUsuario formUsuario = new FormCadUsuario();
         formUsuario.setVisible(true);
     }//GEN-LAST:event_itMnCadUsuarioActionPerformed
+
+    private void itMnCadCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itMnCadCarroActionPerformed
+        // TODO add your handling code here:
+        FormCadCarro formCarro = new FormCadCarro();
+        formCarro.setVisible(true);
+    }//GEN-LAST:event_itMnCadCarroActionPerformed
 
     
     /**
