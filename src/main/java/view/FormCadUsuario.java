@@ -45,6 +45,7 @@ public class FormCadUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Usuário");
@@ -96,6 +97,13 @@ public class FormCadUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setText("Modificar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,7 +145,9 @@ public class FormCadUsuario extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(btCadastrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btCadastrar)
+                    .addComponent(jButton5))
                 .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
@@ -173,7 +183,8 @@ public class FormCadUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -247,6 +258,47 @@ public class FormCadUsuario extends javax.swing.JFrame {
         formRelUsuario.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+        // 1. Crie um objeto Usuario para guardar os dados da tela
+        Usuario usuarioModificado = new Usuario();
+
+        // 2. Pegue os dados de cada campo de texto e coloque no objeto
+        // Pega o ID para a cláusula WHERE
+        usuarioModificado.setIdCliente(Integer.parseInt(cxCodigo.getText())); 
+        
+        // Pega os novos dados para o SET
+        usuarioModificado.setNome(cxNome.getText());
+        usuarioModificado.setCpf(cxCpf.getText());
+        usuarioModificado.setTelefone(cxTelefone.getText());
+        usuarioModificado.setIdade(Integer.parseInt(cxIdade.getText()));
+
+        // 3. Crie uma instância do seu controlador
+        ControladorUsuario controlador = new ControladorUsuario();
+        
+        // 4. Chame o método modificar, passando o objeto com todos os dados
+        controlador.modificar(usuarioModificado);
+
+        // 5. Mostre uma mensagem de sucesso para o usuário
+        JOptionPane.showMessageDialog(
+            null,
+            "Usuário modificado com sucesso!",
+            "Alteração de Cadastro",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+
+    } catch (NumberFormatException e) {
+        // Trata o erro caso o usuário digite texto nos campos de código ou idade
+        JOptionPane.showMessageDialog(
+            null,
+            "O código e a idade devem ser números válidos.",
+            "Erro de Formato",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,6 +345,7 @@ public class FormCadUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel rotCodigo;
     private javax.swing.JLabel rotCpf;
     private javax.swing.JLabel rotIdade;

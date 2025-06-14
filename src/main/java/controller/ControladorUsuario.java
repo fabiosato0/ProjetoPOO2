@@ -99,6 +99,40 @@ public class ControladorUsuario {
         }
         return usuariosEncontrados;
     }
+    
+    public void modificar(Usuario usuario) {
+    PreparedStatement ps = null;
+    // O comando SQL UPDATE define quais colunas serão atualizadas
+    // A cláusula WHERE é crucial para especificar QUAL registro será modificado
+    String sql3 = "UPDATE usuario SET nome = ?, cpf = ?, telefone = ?, idade = ? WHERE idcliente = ?";
+
+    // Usando try-with-resources para garantir que a conexão feche automaticamente
+    try{   
+             conn = DriverManager.getConnection(url, user, senha);
+             ps = conn.prepareStatement(sql3);
+             
+             // Para um SELECT, usamos executeQuery(), que retorna um ResultSet
+            
+
+        // Agora, definimos os valores para cada '?' na ordem em que aparecem.
+        // Parâmetros do SET
+        ps.setString(1, usuario.getNome());
+        ps.setString(2, usuario.getCpf());
+        ps.setString(3, usuario.getTelefone());
+        ps.setInt(4, usuario.getIdade());
+
+        // Parâmetro do WHERE
+        ps.setInt(5, usuario.getIdCliente());
+       
+        ps.executeUpdate();
+
+
+    } catch (Exception e) {
+        System.out.println("ERRO ao modificar usuário:");
+        // Imprimir o erro real ajuda muito a descobrir o que deu errado
+
+    }
+    }
 }
     
  
