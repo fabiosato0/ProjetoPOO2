@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import model.Carro;
+import controller.ControladorCarro;
+import javax.swing.JOptionPane;
 /**
  *
  * @author fasat
@@ -17,6 +19,8 @@ public class FormCadCarro extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -182,10 +186,43 @@ public class FormCadCarro extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
+        Carro carro = new Carro();
+        String placa = cxPlaca.getText();
+        String modelo = cxModelo.getText();
+        int ano = Integer.parseInt(cxAno.getText());
+        int passageiro = Integer.parseInt(cxPassageiro.getText());
+        float capacidade = Float.parseFloat(cxCapacidade.getText());
+        float litros = Float.parseFloat(cxLitros.getText());
+
+
+        carro.setPlaca(placa);
+        carro.setModelo(modelo);
+        carro.setAno(ano);
+        carro.setPassageiro(passageiro);
+        carro.setCapacidade(capacidade);
+        carro.setLitros(litros);
         
+        ControladorCarro cont  = new ControladorCarro();
+        cont.inserir(carro);
         
+        JOptionPane.showMessageDialog(
+            null,
+            "Carro Cadastrado com sucesso",
+            "Cadastro de Carros",
+            1
+        );
+       limpar();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
+    public void limpar(){
+        cxPlaca.setText("");
+        cxModelo.setText("");
+        cxAno.setText("");
+        cxPassageiro.setText("");
+        cxCapacidade.setText("");
+        cxLitros.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
