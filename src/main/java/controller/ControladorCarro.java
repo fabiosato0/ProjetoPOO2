@@ -19,12 +19,12 @@ public class ControladorCarro {
         PreparedStatement ps = null;
         
         String sql1 = "INSERT INTO carro("
-                + " placa,"
-                + " modelo,"
-                + " ano,"
-                + " passageiro,"
-                + " capacidade,"
-                + " litros)"
+                + " car_placa,"
+                + " car_modelo,"
+                + " car_ano,"
+                + " car_passageiross,"
+                + " car_capacidade,"
+                + " car_litros_tanque)"
                 + " VALUES(?,?,?,?,?,?)";
         
         try{
@@ -42,6 +42,7 @@ public class ControladorCarro {
             conn.close();
             
         }catch(Exception e){
+            e.printStackTrace();
             System.out.println("Falha na conexao!");
         }
     }
@@ -54,12 +55,13 @@ public class ControladorCarro {
           Class.forName(driver);
           conn = DriverManager.getConnection(url,user,senha);
           ps = conn.prepareStatement(sql2);
-          ps.setInt(1,idCarro);
+          ps.setInt(1, idCarro);
           ps.executeUpdate();
           ps.close();
           conn.close();
           
         }catch(Exception e){
+            e.printStackTrace();
             System.out.println("Falha na conexao!");
         }
     }
@@ -77,16 +79,17 @@ public class ControladorCarro {
 
             while (rs.next()) {
                 Carro carro = new Carro();
-                carro.setPlaca(rs.getString("placa"));
-                carro.setModelo(rs.getString("modelo"));
-                carro.setAno(rs.getInt("ano"));
-                carro.setPassageiro(rs.getInt("passageiro"));
-                carro.setCapacidade(rs.getFloat("capacidade"));
-                carro.setLitros(rs.getFloat("litros"));
+                carro.setPlaca(rs.getString("car_placa"));
+                carro.setModelo(rs.getString("car_modelo"));
+                carro.setAno(rs.getInt("car_ano"));
+                carro.setPassageiro(rs.getInt("car_passageiross"));
+                carro.setCapacidade(rs.getFloat("car_capacidade"));
+                carro.setLitros(rs.getFloat("car_litros_tanque"));
                 carrosEncontrados.add(carro);
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("ERRO ao listar carros!");
         
         }
@@ -96,14 +99,13 @@ public class ControladorCarro {
     public void modificar(Carro carro) {
     PreparedStatement ps = null;
     String sql3 = "UPDATE carro SET"
-            + "placa = ?, "
-            + "modelo = ?, "
-            + "disponivel = ?, "
-            + "ano = ?, "
-            + "passageiro = ?, "
-            + "capacidade = ?, "
-            + "litros = ? "
-            + "WHERE idCarro = ?";
+            + "car_placa = ?, "
+            + "car_modelo = ?, "
+            + "car_ano = ?, "
+            + "car_passageiross = ?, "
+            + "car_capacidade = ?, "
+            + "car_litros_tanque = ? "
+            + "WHERE car_placa = ?";
 
     try{   
              conn = DriverManager.getConnection(url, user, senha);
@@ -117,6 +119,7 @@ public class ControladorCarro {
             ps.executeUpdate();
 
     } catch (Exception e) {
+        e.printStackTrace();
         System.out.println("ERRO ao modificar carro:");
     }
     }
