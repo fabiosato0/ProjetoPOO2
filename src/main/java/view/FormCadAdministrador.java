@@ -4,14 +4,19 @@
  */
 package view;
 
+// Importações atualizadas para Admin
+import model.Administrador;
+import controller.ControladorAdmin;
+import javax.swing.JOptionPane;
 /**
  *
  * @author fasat
  */
+// Nome da classe alterado para FormCadAdmin
 public class FormCadAdministrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormCadAdministrador
+     * Creates new form FormCadAdmin
      */
     public FormCadAdministrador() {
         initComponents();
@@ -26,48 +31,30 @@ public class FormCadAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rotNome = new javax.swing.JLabel();
-        rotIdade = new javax.swing.JLabel();
-        rotCpf = new javax.swing.JLabel();
-        rotTelefone = new javax.swing.JLabel();
-        rotCodigo = new javax.swing.JLabel();
-        cxNome = new javax.swing.JTextField();
-        cxIdade = new javax.swing.JTextField();
-        cxCpf = new javax.swing.JTextField();
-        cxTelefone = new javax.swing.JTextField();
-        cxCodigo = new javax.swing.JTextField();
+        rotTitulo = new javax.swing.JLabel();
         btCadastrar = new javax.swing.JButton();
-        rotCadastrar = new javax.swing.JLabel();
+        rotNome = new javax.swing.JLabel();
+        cxNome = new javax.swing.JTextField();
+        rotCpf = new javax.swing.JLabel();
+        cxCpf = new javax.swing.JTextField();
+        rotTelefone = new javax.swing.JLabel();
+        cxTelefone = new javax.swing.JTextField();
+        rotIdade = new javax.swing.JLabel();
+        cxIdade = new javax.swing.JTextField();
+        rotCodigo = new javax.swing.JLabel();
+        cxCodigo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        // Título da janela alterado
+        setTitle("Cadastro de Admin");
 
-        rotNome.setText("Nome:");
-
-        rotIdade.setText("Idade: ");
-
-        rotCpf.setText("Cpf: ");
-
-        rotTelefone.setText("Telefone: ");
-
-        rotCodigo.setText("Código:");
-
-        cxIdade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxIdadeActionPerformed(evt);
-            }
-        });
-
-        cxCpf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxCpfActionPerformed(evt);
-            }
-        });
-
-        cxCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxCodigoActionPerformed(evt);
-            }
-        });
+        // Rótulo do título alterado
+        rotTitulo.setText("Cadastro de Admin");
 
         btCadastrar.setText("Cadastrar");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -76,87 +63,246 @@ public class FormCadAdministrador extends javax.swing.JFrame {
             }
         });
 
-        rotCadastrar.setText("Cadastro Administrador");
+        rotNome.setText("Nome:");
+
+        rotCpf.setText("Cpf:");
+
+        rotTelefone.setText("Telefone:");
+
+        rotIdade.setText("Idade:");
+
+        // Rótulo do código alterado para refletir "ID do Admin"
+        rotCodigo.setText("ID Admin:");
+
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Deletar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Listar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Modificar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rotTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rotCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cxIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cxTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(141, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cxIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rotTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rotCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(rotNome)
+                                            .addGap(2, 2, 2))
+                                        .addComponent(rotIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(rotCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cxNome, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                        .addComponent(cxCpf)
+                                        .addComponent(cxTelefone))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(rotTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btCadastrar)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rotCadastrar)
-                        .addGap(133, 133, 133))))
+                    .addComponent(btCadastrar)
+                    .addComponent(jButton5))
+                .addGap(61, 61, 61))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(rotCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(rotTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotNome))
+                    .addComponent(rotNome)
+                    .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cxIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotIdade))
+                    .addComponent(rotIdade)
+                    .addComponent(cxIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rotCpf)
+                    .addComponent(cxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rotTelefone)
+                    .addComponent(cxTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rotCpf))
+                    .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rotCodigo))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cxTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rotCodigo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btCadastrar))
-                    .addComponent(rotTelefone))
-                .addGap(24, 24, 24))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrar)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cxIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxIdadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxIdadeActionPerformed
-
-    private void cxCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxCpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxCpfActionPerformed
-
-    private void cxCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxCodigoActionPerformed
-
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
+        // Lógica de cadastro atualizada para Admin
+        Administrador admin = new Administrador();
+        String t1 = cxCpf.getText();
+        String t2 = cxNome.getText();
+        String t3 = cxTelefone.getText();
+        int t4 = Integer.parseInt(cxIdade.getText());
+        int t5 = Integer.parseInt(cxCodigo.getText());
+        
+        admin.setCpf(t1);
+        admin.setNome(t2);
+        admin.setTelefone(t3);
+        admin.setIdade(t4);
+        admin.setIdAdmin(t5); // Método set alterado
+        
+        // Controlador de Admin é instanciado
+        ControladorAdmin cont  = new ControladorAdmin();
+        cont.inserir(admin);
+        
+        // Mensagem de sucesso atualizada
+        JOptionPane.showMessageDialog(
+            null,
+            "Administrador Cadastrado com sucesso",
+            "Cadastro de Admin",
+            1
+        );
+       limpar();
     }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        limpar();
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void limpar(){
+        cxNome.setText("");
+        cxIdade.setText("");
+        cxCpf.setText("");
+        cxCodigo.setText("");
+        cxTelefone.setText("");     
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int t = Integer.parseInt(cxCodigo.getText());
+        
+        // Lógica de deleção atualizada para Admin
+        ControladorAdmin cont  = new ControladorAdmin();
+        cont.deletar(t);
+        
+        // Mensagem de sucesso atualizada
+        JOptionPane.showMessageDialog(
+            null,
+            "Administrador Apagado com sucesso",
+            "Administrador Deletado",
+            1
+        );
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        // Abre o formulário de relatório de Admins
+        FormRelAdministrador formRelAdmin = new FormRelAdministrador();
+        formRelAdmin.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+        // Lógica de modificação atualizada para Admin
+        Administrador adminModificado = new Administrador();
+
+        // Pega os dados dos campos de texto
+        adminModificado.setIdAdmin(Integer.parseInt(cxCodigo.getText())); 
+        adminModificado.setNome(cxNome.getText());
+        adminModificado.setCpf(cxCpf.getText());
+        adminModificado.setTelefone(cxTelefone.getText());
+        adminModificado.setIdade(Integer.parseInt(cxIdade.getText()));
+
+        ControladorAdmin controlador = new ControladorAdmin();
+        controlador.modificar(adminModificado);
+
+        // Mensagem de sucesso atualizada
+        JOptionPane.showMessageDialog(
+            null,
+            "Admin modificado com sucesso!",
+            "Alteração de Cadastro",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+
+    } catch (NumberFormatException e) {
+        // Trata o erro caso o usuário digite texto nos campos de código ou idade
+        JOptionPane.showMessageDialog(
+            null,
+            "O ID do admin e a idade devem ser números válidos.",
+            "Erro de Formato",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +321,7 @@ public class FormCadAdministrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
+            // Log de erro atualizado para FormCadAdmin
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -184,13 +331,15 @@ public class FormCadAdministrador extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        //<editor-fold defaultstate="collapsed" desc="Create and display the form">
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                // Instancia o novo formulário de admin
                 new FormCadAdministrador().setVisible(true);
             }
         });
+        //</editor-fold>
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,11 +349,16 @@ public class FormCadAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField cxIdade;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxTelefone;
-    private javax.swing.JLabel rotCadastrar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel rotCodigo;
     private javax.swing.JLabel rotCpf;
     private javax.swing.JLabel rotIdade;
     private javax.swing.JLabel rotNome;
     private javax.swing.JLabel rotTelefone;
+    private javax.swing.JLabel rotTitulo;
     // End of variables declaration//GEN-END:variables
 }
