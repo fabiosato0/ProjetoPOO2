@@ -16,11 +16,11 @@ public class Administrador extends Pessoa{
         idAdmin = 0;
     }
 
-    public int getIdCliente() {
+    public int getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdCliente(int idAdmin) {
+    public void setIdAdmin(int idAdmin) {
         this.idAdmin = idAdmin;
     }
 
