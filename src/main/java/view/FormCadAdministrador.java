@@ -3,20 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-// Importações atualizadas para Admin
 import model.Administrador;
 import controller.ControladorAdmin;
 import javax.swing.JOptionPane;
+import java.util.List;
 /**
  *
  * @author fasat
  */
-// Nome da classe alterado para FormCadAdmin
 public class FormCadAdministrador extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormCadAdmin
+     * Creates new form FormCadAdministrador
      */
     public FormCadAdministrador() {
         initComponents();
@@ -50,11 +48,11 @@ public class FormCadAdministrador extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        // Título da janela alterado
-        setTitle("Cadastro de Admin");
+        setTitle("Cadastro de Usuário");
+        setBackground(new java.awt.Color(0, 204, 255));
+        setForeground(new java.awt.Color(102, 204, 255));
 
-        // Rótulo do título alterado
-        rotTitulo.setText("Cadastro de Admin");
+        rotTitulo.setText("Cadastro de Administradores");
 
         btCadastrar.setText("Cadastrar");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -71,8 +69,7 @@ public class FormCadAdministrador extends javax.swing.JFrame {
 
         rotIdade.setText("Idade:");
 
-        // Rótulo do código alterado para refletir "ID do Admin"
-        rotCodigo.setText("ID Admin:");
+        rotCodigo.setText("Código:");
 
         jButton1.setText("Limpar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,35 +110,8 @@ public class FormCadAdministrador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cxIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rotTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rotCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(rotNome)
-                                            .addGap(2, 2, 2))
-                                        .addComponent(rotIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(rotCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cxNome, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                                        .addComponent(cxCpf)
-                                        .addComponent(cxTelefone))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(rotTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -154,6 +124,30 @@ public class FormCadAdministrador extends javax.swing.JFrame {
                     .addComponent(btCadastrar)
                     .addComponent(jButton5))
                 .addGap(61, 61, 61))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cxIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rotTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rotCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rotNome)
+                                        .addGap(2, 2, 2))
+                                    .addComponent(rotIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(rotCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cxCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cxNome, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                    .addComponent(cxCpf)
+                                    .addComponent(cxTelefone)))))
+                    .addComponent(rotTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,29 +192,26 @@ public class FormCadAdministrador extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
-        // Lógica de cadastro atualizada para Admin
-        Administrador admin = new Administrador();
+        Administrador administrador = new Administrador();
         String t1 = cxCpf.getText();
         String t2 = cxNome.getText();
         String t3 = cxTelefone.getText();
         int t4 = Integer.parseInt(cxIdade.getText());
         int t5 = Integer.parseInt(cxCodigo.getText());
         
-        admin.setCpf(t1);
-        admin.setNome(t2);
-        admin.setTelefone(t3);
-        admin.setIdade(t4);
-        admin.setIdAdmin(t5); // Método set alterado
+        administrador.setCpf(t1);
+        administrador.setNome(t2);
+        administrador.setTelefone(t3);
+        administrador.setIdade(t4);
+        administrador.setIdAdmin(t5);
         
-        // Controlador de Admin é instanciado
         ControladorAdmin cont  = new ControladorAdmin();
-        cont.inserir(admin);
+        cont.inserir(administrador);
         
-        // Mensagem de sucesso atualizada
         JOptionPane.showMessageDialog(
             null,
-            "Administrador Cadastrado com sucesso",
-            "Cadastro de Admin",
+            "Usuário Cadastrado com sucesso",
+            "Cadastro de Técnico",
             1
         );
        limpar();
@@ -237,7 +228,7 @@ public class FormCadAdministrador extends javax.swing.JFrame {
         cxIdade.setText("");
         cxCpf.setText("");
         cxCodigo.setText("");
-        cxTelefone.setText("");     
+        cxTelefone.setText("");    
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -249,46 +240,49 @@ public class FormCadAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
         int t = Integer.parseInt(cxCodigo.getText());
         
-        // Lógica de deleção atualizada para Admin
         ControladorAdmin cont  = new ControladorAdmin();
         cont.deletar(t);
         
-        // Mensagem de sucesso atualizada
         JOptionPane.showMessageDialog(
             null,
-            "Administrador Apagado com sucesso",
-            "Administrador Deletado",
+            "Usuário Apagado com sucesso",
+            "Usuário Deletado",
             1
         );
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        // Abre o formulário de relatório de Admins
-        FormRelAdministrador formRelAdmin = new FormRelAdministrador();
-        formRelAdmin.setVisible(true);
+        FormRelAdministrador formRelAdministrador = new FormRelAdministrador();
+        formRelAdministrador.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try {
-        // Lógica de modificação atualizada para Admin
-        Administrador adminModificado = new Administrador();
+        // 1. Crie um objeto Administrador para guardar os dados da tela
+        Administrador administradorModificado = new Administrador();
 
-        // Pega os dados dos campos de texto
-        adminModificado.setIdAdmin(Integer.parseInt(cxCodigo.getText())); 
-        adminModificado.setNome(cxNome.getText());
-        adminModificado.setCpf(cxCpf.getText());
-        adminModificado.setTelefone(cxTelefone.getText());
-        adminModificado.setIdade(Integer.parseInt(cxIdade.getText()));
+        // 2. Pegue os dados de cada campo de texto e coloque no objeto
+        // Pega o ID para a cláusula WHERE
+        administradorModificado.setIdAdmin(Integer.parseInt(cxCodigo.getText())); 
+        
+        // Pega os novos dados para o SET
+        administradorModificado.setNome(cxNome.getText());
+        administradorModificado.setCpf(cxCpf.getText());
+        administradorModificado.setTelefone(cxTelefone.getText());
+        administradorModificado.setIdade(Integer.parseInt(cxIdade.getText()));
 
+        // 3. Crie uma instância do seu controlador
         ControladorAdmin controlador = new ControladorAdmin();
-        controlador.modificar(adminModificado);
+        
+        // 4. Chame o método modificar, passando o objeto com todos os dados
+        controlador.modificar(administradorModificado);
 
-        // Mensagem de sucesso atualizada
+        // 5. Mostre uma mensagem de sucesso para o usuário
         JOptionPane.showMessageDialog(
             null,
-            "Admin modificado com sucesso!",
+            "Usuário modificado com sucesso!",
             "Alteração de Cadastro",
             JOptionPane.INFORMATION_MESSAGE
         );
@@ -297,7 +291,7 @@ public class FormCadAdministrador extends javax.swing.JFrame {
         // Trata o erro caso o usuário digite texto nos campos de código ou idade
         JOptionPane.showMessageDialog(
             null,
-            "O ID do admin e a idade devem ser números válidos.",
+            "O código e a idade devem ser números válidos.",
             "Erro de Formato",
             JOptionPane.ERROR_MESSAGE
         );
@@ -321,7 +315,6 @@ public class FormCadAdministrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            // Log de erro atualizado para FormCadAdmin
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -331,15 +324,14 @@ public class FormCadAdministrador extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FormCadAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //<editor-fold defaultstate="collapsed" desc="Create and display the form">
+        //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                // Instancia o novo formulário de admin
                 new FormCadAdministrador().setVisible(true);
             }
         });
-        //</editor-fold>
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

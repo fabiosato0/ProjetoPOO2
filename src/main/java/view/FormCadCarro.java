@@ -269,6 +269,7 @@ public class FormCadCarro extends javax.swing.JFrame {
         try {
             Carro carroModificado = new Carro();
 
+            carroModificado.setIdCarro(Integer.parseInt(cxCodigo.getText()));
             carroModificado.setPlaca(cxPlaca.getText());
             carroModificado.setModelo(cxModelo.getText());
             carroModificado.setAno(Integer.parseInt(cxAno.getText()));
@@ -300,20 +301,23 @@ public class FormCadCarro extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
         Carro carro = new Carro();
+        int idCarro = Integer.parseInt(cxCodigo.getText());
         String placa = cxPlaca.getText();
         String modelo = cxModelo.getText();
         int ano = Integer.parseInt(cxAno.getText());
         int passageiro = Integer.parseInt(cxPassageiro.getText());
         float capacidade = Float.parseFloat(cxCapacidade.getText());
         float litros = Float.parseFloat(cxLitros.getText());
+        boolean disponivel = checkDisponivel.isSelected();
 
-
+        carro.setIdCarro(idCarro);
         carro.setPlaca(placa);
         carro.setModelo(modelo);
         carro.setAno(ano);
         carro.setPassageiro(passageiro);
         carro.setCapacidade(capacidade);
         carro.setLitros(litros);
+        carro.setDisponivel(disponivel);
         
         ControladorCarro cont  = new ControladorCarro();
         cont.inserir(carro);
@@ -360,11 +364,11 @@ public class FormCadCarro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void checkDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkDisponivelActionPerformed
-        // TODO add your handling code here:
-        
+        boolean disponivel = checkDisponivel.isSelected();
     }//GEN-LAST:event_checkDisponivelActionPerformed
 
     public void limpar(){
+        cxCodigo.setText("");
         cxPlaca.setText("");
         cxModelo.setText("");
         cxAno.setText("");

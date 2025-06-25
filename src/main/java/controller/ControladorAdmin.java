@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class ControladorAdmin { // Trocado de ControladorUsuario para ControladorAdmin
     static Connection conn = null;
-    static String url = "jdbc:postgresql://localhost:5432/NorthCars";
+    static String url = "jdbc:postgresql://localhost:5432/postgres";
     static String user = "postgres";
     static String senha = "utfpr";
     static String driver = "org.postgresql.Driver";
@@ -22,7 +22,13 @@ public class ControladorAdmin { // Trocado de ControladorUsuario para Controlado
     public void inserir(Administrador admin){ // Trocado de Usuario para Admin
         PreparedStatement ps = null;
 
-        String sql1 = "INSERT INTO administrador(cpf,nome,telefone,idade,idadmin) VALUES(?,?,?,?,?)"; // Trocado 'usuario' e 'idCliente'
+        String sql1 = "INSERT INTO administrador("
+                + "cpf,"
+                + "nome,"
+                + "telefone,"
+                + "idade,"
+                + "idadmin) "
+                + "VALUES(?,?,?,?,?)"; // Trocado 'usuario' e 'idCliente'
 
         try{ //bloco para conexao com BD
             Class.forName(driver);

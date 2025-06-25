@@ -49,7 +49,7 @@ public class FormRelAdministrador extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Cpf", "Nome", "Idade", "Telefone", "Id"
+                "Cpf", "Nome", "Idade", "Telefone", "Identificador"
             }
         ));
         tbUsuario.addMouseListener(new java.awt.event.MouseAdapter() {

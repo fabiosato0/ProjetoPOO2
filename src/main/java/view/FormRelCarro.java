@@ -43,13 +43,13 @@ public class FormRelCarro extends javax.swing.JFrame {
 
         tbCarro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Modelo", "Ano", "Capacidade", "L. Combustível"
+                "Placa", "Modelo", "Ano", "N. Passageiros", "Capacidade", "L. Combustível", "Disponivel"
             }
         ));
         tbCarro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,8 +69,8 @@ public class FormRelCarro extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +149,8 @@ public class FormRelCarro extends javax.swing.JFrame {
             carro.getAno(),
             carro.getPassageiro(),
             carro.getCapacidade(),
-            carro.getLitros()
+            carro.getLitros(),
+            carro.isDisponivel()
         });
     }
 }   
